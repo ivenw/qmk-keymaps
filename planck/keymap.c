@@ -176,12 +176,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case DVORAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_DVORAK);
-      }
-      return false;
-      break;
     case BACKLIT:
       if (record->event.pressed) {
         register_code(KC_RSFT);
