@@ -24,7 +24,8 @@ enum planck_layers {
   _LOWER,
   _RAISE,
   _PLOVER,
-  _ADJUST
+  _ADJUST,
+  _EMPTY
 };
 
 enum planck_keycodes {
@@ -107,10 +108,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * `-----------------------------------------------------------------------------------'
 */
 [_RAISE] = LAYOUT_planck_grid(
- KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_BSPC,
- KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS,    KC_PLUS,    KC_LCBR, KC_RCBR, KC_PIPE,
- _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  S(KC_NUHS), S(KC_NUBS), KC_HOME, KC_END,  _______,
- _______, _______, _______, _______, _______, KC_BSPC, KC_BSPC,   _______,   KC_MNXT,    KC_VOLD, KC_VOLU, KC_MPLY
+	KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DOLLAR, KC_PERC, _______, _______, _______,  _______, _______, _______,
+    _______, KC_UNDS, KC_LBRC, KC_LCBR, KC_LPRN,   KC_CIRC, _______, _______, _______,  _______, _______, _______,
+    _______, KC_TILD, KC_RBRC, KC_RCBR, KC_RPRN,   KC_AMPR, _______, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______,   _______, _______, _______, _______,  _______, _______, _______
 ),
 
 /* Plover layer (http://opensteno.org)
@@ -147,6 +148,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL ,
     _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK,  _______,  PLOVER,  _______,
     _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+),
+
+[_EMPTY] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
 )
 
