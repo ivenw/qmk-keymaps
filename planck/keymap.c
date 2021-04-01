@@ -24,6 +24,7 @@ enum planck_layers {
   _LOWER,
   _RAISE,
   _PLOVER,
+  _CODE,
   _ADJUST,
   _EMPTY
 };
@@ -39,6 +40,7 @@ enum planck_keycodes {
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
+#define CODE MO(_CODE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -75,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
     KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT ,
-    BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    CODE, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Lower
@@ -111,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DOLLAR, KC_PERC, _______, _______, _______,  _______, _______, _______,
     _______, KC_UNDS, KC_LBRC, KC_LCBR, KC_LPRN,   KC_CIRC, _______, _______, _______,  _______, _______, _______,
     _______, KC_TILD, KC_RBRC, KC_RCBR, KC_RPRN,   KC_AMPR, _______, _______, _______,  _______, _______, _______,
-    _______, _______, _______, _______, _______,   _______, _______, _______, _______,  _______, _______, _______
+    _______, _______, _______, _______, _______,   KC_BSPC, KC_BSPC, _______, _______,  _______, _______, _______
 ),
 
 /* Plover layer (http://opensteno.org)
@@ -144,6 +146,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
+
+ [_CODE] = LAYOUT_planck_grid(
+     _______, _______, _______, _______, _______, _______, _______, KC_BTN1, KC_MS_U,  KC_BTN2, _______, _______,
+     _______, _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D,  KC_MS_R, _______, _______,
+     _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,
+     _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+ ),
+
 [_ADJUST] = LAYOUT_planck_grid(
     _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL ,
     _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK,  _______,  PLOVER,  _______,
